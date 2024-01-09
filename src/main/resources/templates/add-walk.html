@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Walk</title>
+</head>
+<body>
+<form action="#" th:action="@{/addwalk}" th:object="${walk}" method="post">
+    <label for="time">Time</label>
+    <input type="text" th:field="*{time}" id="time" placeholder="time">
+    <span th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+    <label for="distance">Distance</label>
+    <input type="text" th:field="*{distance}" id="distance" placeholder="distance">
+    <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}"></span>
+    <input type="submit" value="Add Walk">
+    <p><a href="/cancel">Cancel</a></p>
+</form>
+</body>
+</html>

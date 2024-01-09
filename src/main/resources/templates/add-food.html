@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/addfood}" th:object="${food}" method="post">
+    <label for="description">Descrition</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="description">
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+    <label for="calories">Calories</label>
+    <input type="text" th:field="*{calories}" id="calories" placeholder="calories">
+    <span th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}"></span>
+    <input type="submit" value="Add Food">
+    <p><a href="/cancel">Cancel</a></p>
+</form>
+</body>
+</html>

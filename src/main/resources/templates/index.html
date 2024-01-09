@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JFit</title>
+
+    <div th:switch="${foods}">
+        <h2 th:case="null">No food yet!</h2>
+        <div th:case="*">
+            <h2>Food (Today)</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Calories</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="food : ${foods}">
+                    <td th:text="${food.description}"></td>
+                    <td th:text="${food.calories}"></td>
+                    <td th:text="${food.foodDate}"></td>
+                    <td><a th:href="@{/deleteFood/{id}(id=${food.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/signupFood">Add a new food</a></p>
+    </div>
+
+    <div th:switch="${walks}">
+        <h2 th:case="null">No walks yet!</h2>
+        <div th:case="*">
+            <h2>Walks (Past week)</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Distance</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="walk : ${walks}">
+                    <td th:text="${walk.distance}"></td>
+                    <td th:text="${walk.time}"></td>
+                    <td th:text="${walk.walkDate}"></td>
+                    <td><a th:href="@{/deleteWalk/{id}(id=${walk.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/signupWalk">Add a new walk</a></p>
+    </div>
+
+    <div th:switch="${weights}">
+        <h2 th:case="null">No weight yet!</h2>
+        <div th:case="*">
+            <h2>Weight (Past week)</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Pounds</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="weight : ${weights}">
+                    <td th:text="${weight.pounds}"></td>
+                    <td th:text="${weight.weightDate}"></td>
+                    <td><a th:href="@{/deleteWeight/{id}(id=${weight.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/signupWeight">Add a new weight</a></p>
+    </div>
+
+    <p>**********************************</p>
+
+    <div th:switch="${allFoods}">
+        <h2 th:case="null">No food yet!</h2>
+        <div th:case="*">
+            <h2>All Food</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Calories</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="food : ${allFoods}">
+                    <td th:text="${food.description}"></td>
+                    <td th:text="${food.calories}"></td>
+                    <td th:text="${food.foodDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:switch="${allWalks}">
+        <h2 th:case="null">No walks yet!</h2>
+        <div th:case="*">
+            <h2>All Walks</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Distance</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="walk : ${allWalks}">
+                    <td th:text="${walk.distance}"></td>
+                    <td th:text="${walk.time}"></td>
+                    <td th:text="${walk.walkDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:switch="${allWeights}">
+        <h2 th:case="null">No weight yet!</h2>
+        <div th:case="*">
+            <h2>All Weight</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Pounds</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="weight : ${allWeights}">
+                    <td th:text="${weight.pounds}"></td>
+                    <td th:text="${weight.weightDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>

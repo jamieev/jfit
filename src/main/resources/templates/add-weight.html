@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Weight</title>
+</head>
+<body>
+<form action="#" th:action="@{/addweight}" th:object="${weight}" method="post">
+    <label for="description">Pounds</label>
+    <input type="text" th:field="*{pounds}" id="pounds" placeholder="pounds">
+    <span th:if="${#fields.hasErrors('pounds')}" th:errors="*{pounds}"></span>
+    <input type="submit" value="Add Weight">
+    <p><a href="/cancel">Cancel</a></p>
+</form>
+</body>
+</html>
