@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface FoodRepository extends ListCrudRepository<Food, Long> {
 
-    List<Food> findAllByFoodDateBetween(LocalDate start, LocalDate end, Sort sort);
+    List<Food> findByFoodDate(LocalDate date, Sort sort);
 }

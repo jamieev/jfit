@@ -54,8 +54,7 @@ public class JFitController {
     @GetMapping("/index")
     public String showLists(Model model) {
 //        addTestData();
-        model.addAttribute("foods", foodRepository.findAllByFoodDateBetween(
-                LocalDate.now().minusDays(1),
+        model.addAttribute("foods", foodRepository.findByFoodDate(
                 LocalDate.now(),
                 Sort.by(Sort.Direction.ASC, "foodDate"))
         );
